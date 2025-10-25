@@ -1,0 +1,25 @@
+name: qtim
+
+services:
+  nuxt:
+    container_name: qtim-nuxt
+    build:
+      context: ../frontend
+      dockerfile: ../docker/dev/Dockerfile
+      args:
+        UID: ${UID}
+        GID: ${GID}
+        PORT: ${PORT}
+        NODE_ENV: ${NODE_ENV}
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    volumes:
+      - ../frontend/:/var/www/client
+    restart: unless-stopped
+    networks:
+      qtim:
+        ipv4_address: ${IP_ADDRESS}
+
+networks:
+  qtim:
+    external: true

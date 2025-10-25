@@ -1,0 +1,62 @@
+{
+  "name": "qtim-test-task",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typecheck": "npx nuxi typecheck",
+    "postinstall": "nuxt prepare",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "stylelint": "stylelint '**/*.{css,scss,vue}'",
+    "stylelint:fix": "stylelint --fix '**/*.{css,scss,vue}'",
+    "prepare-husky": "cd .. && husky frontend/.husky",
+    "deploy": "npm run build && pm2 start ecosystem.config.cjs"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 5%",
+    "not dead"
+  ],
+  "dependencies": {
+    "@nuxt/fonts": "^0.11.4",
+    "@nuxt/image": "^1.11.0",
+    "@pinia/nuxt": "^0.11.2",
+    "globals": "16.4.0",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^3.19.3",
+    "pinia": "^3.0.3",
+    "pm2": "^6.0.13",
+    "sass": "^1.93.2",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@nuxt/eslint": "^1.9.0",
+    "@nuxtjs/stylelint-module": "^5.2.1",
+    "@stylistic/eslint-plugin": "^2.11.0",
+    "eslint": "^9.38.0",
+    "eslint-plugin-vue": "^10.5.1",
+    "husky": "^9.1.7",
+    "nuxt-svgo": "^4.2.6",
+    "postcss": "^8.5.6",
+    "postcss-html": "^1.8.0",
+    "postcss-scss": "^4.0.9",
+    "stylelint": "^16.25.0",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-recommended-scss": "^16.0.2",
+    "stylelint-config-recommended-vue": "^1.6.1",
+    "stylelint-order": "^7.0.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.1",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "^3.1.2"
+  }
+}
