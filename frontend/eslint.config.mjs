@@ -3,6 +3,7 @@ import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginVue from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
+import stylistic from '@stylistic/eslint-plugin';
 import withNuxt from './.nuxt/eslint.config.mjs';
 
 export default withNuxt(
@@ -48,10 +49,10 @@ export default withNuxt(
       'vue/attributes-order': 'error',
       'vue/multiline-html-element-content-newline': ['error'],
       'vue/no-async-in-computed-properties': ['error'],
-      'vue/no-multi-spaces': ['error', { ignoreProperties: false }],
-      'vue/multi-word-component-names': ['error', {
-        ignores: ['index', 'default', 'error'],
+      'vue/no-multi-spaces': ['error', {
+        ignoreProperties: false,
       }],
+      'vue/multi-word-component-names': 'off',
       'vue/component-name-in-template-casing': ['error', 'PascalCase', {
         registeredComponentsOnly: true,
         ignores: [],
@@ -64,7 +65,10 @@ export default withNuxt(
       'vue/html-indent': ['error'],
       'vue/html-quotes': ['error', 'double'],
       'vue/html-self-closing': ['error', {
-        html: { normal: 'always', void: 'never' },
+        html: {
+          normal: 'always',
+          void: 'never',
+        },
         svg: 'always',
         math: 'always',
       }],
