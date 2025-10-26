@@ -75,9 +75,6 @@ npm run dev
 cd ../
 make rebuild
 make up
-make bash-nuxt
-npm install
-npm run dev
 ```
 
 ## Production

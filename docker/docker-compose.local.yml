@@ -1,22 +1,25 @@
+version: "3.9"
+
 name: qtim
 
 services:
   nuxt:
-    user: "${UID:-1000}:${GID:-1000}"
     container_name: qtim-f-nuxt
     build:
       context: ../frontend
       dockerfile: ../docker/local/Dockerfile
       args:
+        UID: ${UID}
+        GID: ${GID}
         PORT: ${PORT}
         NODE_ENV: ${NODE_ENV}
-    environment:
-      - NODE_ENV=${NODE_ENV}
     ports:
       - '3000:3000'
     volumes:
-      - ../frontend/:/var/www/client
-    entrypoint: ["sh", "-c", "npm install --production=false && npm run deploy && tail -f /var/log/client.log"]
+      - ../frontend:/var/www/client
+      - /var/www/client/node_modules
+    environment:
+      - NODE_ENV=${NODE_ENV}
     networks:
       - qtim
 

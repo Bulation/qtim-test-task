@@ -9,14 +9,17 @@ ENV NODE_ENV=${NODE_ENV}
 
 RUN npm install -g pm2 cross-env
 
+RUN groupmod -o -g ${GID} node && usermod -o -u ${UID} -g node node
+
 RUN touch /var/log/client.log
 
-RUN groupadd -g ${GID} qtim && useradd -u ${UID} -g ${GID} qtim
-RUN mkdir /home/qtim && chown qtim:qtim /home/qtim
+WORKDIR /var/www/frontend
 
-WORKDIR /var/www/client
-
-USER qtim
+COPY package*.json ./
+RUN npm install --production=false
+COPY . .
+RUN chown -R node:node /var/www/client
+USER node
 
 EXPOSE ${PORT}
 
