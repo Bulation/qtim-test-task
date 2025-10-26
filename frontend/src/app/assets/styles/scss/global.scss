@@ -1,3 +1,5 @@
+@use "./fonts" as *;
+
 *,
 *::before,
 *::after {
@@ -36,4 +38,22 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
   -webkit-appearance: none;
+}
+
+ol, ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
