@@ -9,17 +9,14 @@ services:
       context: ../frontend
       dockerfile: ../docker/local/Dockerfile
       args:
-        UID: ${UID}
         GID: ${GID}
-        PORT: ${PORT}
+        UID: ${UID}
+        PORT: 3000
         NODE_ENV: ${NODE_ENV}
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
-      - ../frontend:/var/www/client
-      - /var/www/client/node_modules
-    environment:
-      - NODE_ENV=${NODE_ENV}
+      - ../frontend/:/var/www/frontend
     networks:
       - qtim
 

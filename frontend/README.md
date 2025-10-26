@@ -76,6 +76,8 @@ npm run dev
 cd ../
 make rebuild
 make up
+npm install
+npm run dev
 ```
 
 ## Production

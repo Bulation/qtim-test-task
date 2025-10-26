@@ -1,6 +1,5 @@
-FROM node:22
+FROM node:22.16.0
 
-# Аргументы
 ARG UID
 ARG GID
 ARG PORT
@@ -10,16 +9,10 @@ ENV NODE_ENV=${NODE_ENV}
 
 RUN groupmod -o -g ${GID} node && usermod -o -u ${UID} -g node node
 
-RUN touch /var/log/client.log
+WORKDIR /var/www/frontend
 
-WORKDIR /var/www/client
-
-COPY package*.json ./
-RUN npm install --production=false
-COPY . .
-RUN chown -R node:node /var/www/client
 USER node
 
 EXPOSE ${PORT}
 
-CMD ["npm", "run", "dev"]
+CMD npm i && npm run dev
