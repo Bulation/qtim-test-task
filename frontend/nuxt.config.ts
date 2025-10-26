@@ -3,6 +3,7 @@ import imagesConfig from './src/app/nuxt-config/image';
 import svgoConfig from './src/app/nuxt-config/svgo';
 import eslintConfig from './src/app/nuxt-config/eslint';
 import stylelintConfig from './src/app/nuxt-config/stylelint';
+import breakpointConfig from './src/app/nuxt-config/breakpoint';
 
 export default defineNuxtConfig({
 
@@ -13,10 +14,19 @@ export default defineNuxtConfig({
     ['nuxt-svgo', svgoConfig],
     ['@nuxt/eslint', eslintConfig],
     ['@nuxtjs/stylelint-module', stylelintConfig],
+    ['nuxt-viewport', breakpointConfig],
   ],
 
+  compatibilityDate: '2025-10-25',
 
   devtools: { enabled: process.env.NODE_ENV !== 'production' },
+
+  components: [
+    {
+      path: '~/shared/ui',
+      pathPrefix: false,
+    },
+  ],
 
   app: {
     head: {
