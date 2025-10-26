@@ -63,6 +63,7 @@ npm run prepare-husky
 
 4. Заполните следующие переменные в файле `.env`:
   - NUXT_BASE_URL - эндпоинт апи
+  - NUXT_IMAGE_BASE_DOMAIN - внешний домен, на котором хостятся изображения проекта
 
 5. Запуск devServer on `http://localhost:3000`:
 
